@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Universe ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, serif;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(180deg, #080d27, #251542, #090b20);
+  overflow-x: hidden;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  color: white;
+  animation: sparkle 2s infinite alternate;
+}
+
+@keyframes sparkle {
+  from { opacity: .2; }
+  to { opacity: 1; }
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  color: #ff9dcc;
+  pointer-events: none;
+  z-index: 2;
+  animation: float 8s linear forwards;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.moon {
+  font-size: 90px;
+  filter: drop-shadow(0 0 25px #fff0ad);
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  to { filter: drop-shadow(0 0 45px #f9d6ff); }
+}
+
+.small-title {
+  color: #ffc2e1;
+  letter-spacing: 4px;
+  font: 12px Arial, sans-serif;
+  margin-top: 25px;
+}
+
+h1 {
+  font-size: clamp(42px, 10vw, 70px);
+  margin: 20px 0;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+h1 span, h2 span {
+  color: #ffafd8;
+}
+
+header p {
+  max-width: 500px;
+  line-height: 1.8;
+  color: #e1d9f4;
+}
+
+button, .button {
+  background: linear-gradient(135deg, #bb67a8, #7760bd);
+  border: 1px solid #f4bfe5;
+  color: white;
+  border-radius: 40px;
+  padding: 14px 24px;
+  margin-top: 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  margin: auto;
+  padding: 75px 20px;
+}
+
+h2 {
+  font-size: clamp(30px, 7vw, 44px);
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: #ded4f0;
+  line-height: 1.9;
+  margin: 0 auto 30px;
+  max-width: 600px;
+}
+
+.card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 20px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: 0 10px 40px #0002;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.photo {
+  overflow: hidden;
+  border-radius: 15px;
+  background: #33214c;
+  border: 1px solid #ffffff25;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.photo p {
+  padding: 13px 5px;
+  color: #ffd6eb;
+  font-size: 14px;
+}
+
+.timeline {
+  text-align: left;
+  max-width: 550px;
+  margin: auto;
+}
+
+.memory {
+  border-left: 2px solid #d49bd9;
+  padding: 5px 0 25px 22px;
+}
+
+.memory h3 {
+  color: #ffb9df;
+  font-size: 21px;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.memory p, .letter p {
+  color: #e1d9f4;
+  line-height: 1.9;
+  margin-bottom: 15px;
+}
+
+.letter {
+  text-align: left;
+}
+
+.signature {
+  color: #ffb5df;
+  font-size: 24px;
+  margin-top: 25px;
+}
+
+#surprise {
+  display: none;
+}
+
+#surprise.show {
+  display: block;
+  animation: reveal 1s ease;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  padding: 35px 15px;
+  color: #cbbce5;
+  line-height: 2;
+}
+
+@media (min-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<header>
+  <div class="moon">🌙</div>
+  <div class="small-title">A LITTLE UNIVERSE MADE FOR YOU</div>
+
+  <h1>Shubham <span>♡</span><br>Twishuu</h1>
+
+  <p>
+    In a universe full of stars, my heart found you.
+    You are my favourite chapter, my sweetest memory,
+    and my little piece of magic. ✨
+  </p>
+
+  <a class="button" href="#story">Enter Our Universe ↓</a>
+</header>
+
+<section id="story">
+  <div class="small-title">CHAPTER ONE</div>
+  <h2>One Year of <span>Us</span> ❤️</h2>
+
+  <p class="description">
+    One beautiful year, countless memories, endless smiles,
+    and a story I want to keep writing with you.
+  </p>
+
+  <div class="card">
+    <p id="countdownMessage">Counting down to our special day ✨</p>
+    <h2 id="countdown">28 · 10 · 2026</h2>
+    <p id="countdownLabel">Until our anniversary</p>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="small-title">LITTLE MOMENTS, BIG FEELINGS</div>
+  <h2>Our Memories 📸</h2>
+
+  <p class="description">
+    Every moment with you deserves a place in my heart.
+    Replace these sample photos with our real pictures.
+  </p>
+
+  <div class="gallery">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" alt="Romantic memory">
+      <p>Our kind of magic ✨</p>
+    </div>
+
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Flowers">
+      <p>Little things, forever 💗</p>
+    </div>
+
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=600&q=80" alt="Sunset">
+      <p>Every moment with you 🌅</p>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="small-title">WRITTEN IN THE STARS</div>
+  <h2>Our Little Timeline ✦</h2>
+
+  <p class="description">
+    Three little chapters in our beautiful story.
+  </p>
+
+  <div class="timeline">
+    <div class="memory">
+      <h3>✨ The Beginning</h3>
+      <p>The day our story began. A memory I will always keep close to my heart.</p>
+    </div>
+
+    <div class="memory">
+      <h3>🌷 Our Favourite Moment</h3>
+      <p>All our conversations, laughs, and little moments that mean so much to me.</p>
+    </div>
+
+    <div class="memory">
+      <h3>❤️ One Year Together</h3>
+      <p>365 days of us, and so many beautiful memories still waiting for us.</p>
+    </div>
+  </div>
+</section>
+
+<section id="letter">
+  <div class="small-title">FROM MY HEART TO YOURS</div>
+  <h2>A Letter for Twishuu 💌</h2>
+
+  <div class="card letter">
+    <p>My dearest Twishuu, ❤️</p>
+
+    <p>
+      Happy first anniversary, my love. One year ago,
+      a beautiful chapter of my life began, and I am so
+      grateful that I get to share this story with you.
+    </p>
+
+    <p>
+      Thank you for the smiles, our conversations, our
+      memories, and all the little things that make our
+      relationship special. You make ordinary days feel magical.
+    </p>
+
+    <p>
+      I may not always find the perfect words to explain
+      what you mean to me, but I hope you always feel how
+      much I care about you.
+    </p>
+
+    <p>
+      If I could make one wish beneath this starry sky,
+      it would be for many more chapters with you,
+      filled with happiness, laughter, kindness, and love.
+    </p>
+
+    <p>
+      Happy 1st anniversary, Twishuu.
+      You will always have a special place in my universe. 🌙
+    </p>
+
+    <div class="signature">Forever your Shubham ♡</div>
+  </div>
+</section>
+
+<section id="surprise-section">
+  <div class="small-title">ONE LAST LITTLE SECRET</div>
+  <h2>A Surprise for You 🎁</h2>
+
+  <p class="description">
+    Twishuu, there is one more thing I want you to know.
+    Open this little surprise when you are ready.
+  </p>
+
+  <button onclick="openSurprise()">Open Your Surprise 💗</button>
+
+  <div class="card" id="surprise">
+    <h2>You Are My Favourite Person ✨</h2>
+    <p class="description">
+      No matter how many stars fill the night sky,
+      this little universe will always remind me of you.
+      Thank you for being part of my story.
+    </p>
+    <h2>Shubham <span>♡</span> Twishuu</h2>
+    <p>Our story is still being written... 🌙</p>
+  </div>
+</section>
+
+<section id="music">
+  <div class="small-title">A MELODY FOR US</div>
+  <h2>Our Little Soundtrack 🎵</h2>
+
+  <p class="description">
+    You can add a favourite romantic song to this website.
+  </p>
+
+  <!-- Add your MP3 file to the repository and uncomment below:
+  <audio id="song" src="our-song.mp3" loop></audio>
+  -->
+
+  <button onclick="toggleMusic()">Play Our Music ♫</button>
+  <p id="musicStatus" style="margin-top:12px;color:#ded4f0">
+    Add your song file to enable music.
+  </p>
+</section>
+
+<footer>
+  Made with love by Shubham, just for Twishuu ♡<br>
+  October 28, 2026 · Under the same sky 🌙
+</footer>
+
+<script>
+  // Create the stars.
+  const stars = document.getElementById("stars");
+
+  for (let i = 0; i < 140; i++) {
+    const star = document.createElement("span");
+    star.className = "star";
+    star.textContent = "✦";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.fontSize = (5 + Math.random() * 10) + "px";
+    star.style.animationDelay = Math.random() * 3 + "s";
+    stars.appendChild(star);
+  }
+
+  // Floating hearts.
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = Math.random() > .5 ? "♡" : "♥";
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize = (15 + Math.random() * 15) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+  }
+
+  setInterval(createHeart, 1000);
+
+  // Anniversary countdown.
+  const anniversary = new Date("2026-10-28T00:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const difference = anniversary - now;
+
+    const message = document.getElementById("countdownMessage");
+    const countdown = document.getElementById("countdown");
+    const label = document.getElementById("countdownLabel");
+
+    if (difference <= 0) {
+      message.textContent = "Today is our special day! ❤️";
+      countdown.textContent = "Shubham ♡ Twishuu";
+      label.textContent = "Happy first anniversary!";
+      return;
+    }
+
+    const days = Math.floor(difference / 86400000);
+    const hours = Math.floor((difference % 86400000) / 3600000);
+    const minutes = Math.floor((difference % 3600000) / 60000);
+
+    countdown.textContent =
+      days + " days · " + hours + " hours · " + minutes + " minutes";
+
+    label.textContent = "Until our anniversary";
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+
+  // Reveal the surprise.
+  function openSurprise() {
+    const surprise = document.getElementById("surprise");
+    surprise.classList.add("show");
+    surprise.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    for (let i = 0; i < 10; i++) {
+      setTimeout(createHeart, i * 150);
+    }
+  }
+
+  // Optional music playback.
+  function toggleMusic() {
+    const song = document.getElementById("song");
+    const status = document.getElementById("musicStatus");
+
+    if (!song) {
+      status.textContent =
+        "Your song has not been added yet. Add an MP3 file first.";
+      return;
+    }
+
+    if (song.paused) {
+      song.play().then(() => {
+        status.textContent = "Playing our song ❤️";
+      }).catch(() => {
+        status.textContent = "Check your music file and try again.";
+      });
+    } else {
+      song.pause();
+      status.textContent = "Music paused";
+    }
+  }
+</script>
+
+</body>
+</html>
